@@ -24,6 +24,8 @@ Head over to your terminal/console and type:
 git clone <URL you copied above>
 ```
 
+This will create a new folder with all the content.
+
 <p align="center">
   <img src="images/git-clone.gif?raw=true" alt="" />
 </p>
@@ -44,7 +46,7 @@ To create a new local branch and switch to it, type:
 git checkout -b <your new branch name>
 ```
 
-Tip: Don't forget to add a descriptive name to your new branch.
+> Tip: Don't forget to add a descriptive name to your new branch. For example, if you're working on a new hero section, you can name it `feature/hero-section`, or if you're fixing links on the header, your new branch name can be `fix/header-nav`.
 
 <p align="center">
   <img src="images/git-checkout-b.gif?raw=true" alt="" />
@@ -52,7 +54,7 @@ Tip: Don't forget to add a descriptive name to your new branch.
 
 ## Make Your Changes
 
-Once you have made the necessary changes and/or added new features, you need to add the changed and new files to the staging area, preparing them to be included in the next commit.
+Once you have made the necessary changes and/or added new features, you need to add the changed and new files to the staging area, preparing them to be included in your next commit.
 
 To add every changes, type:
 
@@ -68,18 +70,32 @@ To make a commit, type:
 git commit -m '<Your commit message>'
 ```
 
-Tip: Keep your commit message short and clear.
+> Tip: Keep your commit message short and clear. It should be no longer than 60-70 characters.
 
 <p align="center">
   <img src="images/git-commit.gif?raw=true" alt="" />
 </p>
 
-## Push Changes
+## Push Changes and Avoid Conflicts
+
+It's time to push your changes. But don't forget, you're working in teams. There is a chance that the `master` branch has been updated by someone else while you made your changes. You need to update your branch from the `master` branch.
+
+```bash
+# switch to the master branch
+git checkout master
+# git pull fetches the new commits from GitHub
+# and merges these into your local master branch
+git pull
+# switch back to the branch you worked on
+git checkout <your branch name>
+# merge new commits from master
+git merge master
+```
 
 To push changes from your local repository to the remote repository, type:
 
 ```bash
-git push origin <your new branch name>
+git push origin <your branch name>
 ```
 
 <p align="center">
@@ -88,8 +104,12 @@ git push origin <your new branch name>
 
 ## Create a Pull Request
 
-Once you pushed the changes, it's possible to make a pull request to the original repository by visiting the repo's GitHub page and clicking on the green `Compare and pull request` button:
+Once you pushed your working branch, you need to make a pull request against `master`. by visiting the repo's GitHub page and clicking on the green `Compare and pull request` button:
 
 <p align="center">
   <img src="images/git-pull-request.gif?raw=true" alt="" />
 </p>
+
+Time to celebrate 🎉 You did it! Now, you need to wait for one of your teammates to review your code and merge your pull request.
+
+Happy coding! 💪
